@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Vite + React Starter Template",
   "msw": {
-    "workerDirectory": [
-      "public"
-    ]
+    "workerDirectory": ["public"]
   },
   "type": "module",
   "engines": {
@@ -32,13 +30,15 @@
     "format": "biome format --write .",
     "ci": "biome ci .",
     "prisma:generate": "prisma generate",
-    "prisma:push": "prisma db push"
+    "prisma:push": "prisma db push",
+    "dev:server": "npx tsx server/index.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@tanstack/react-router": "^1.85.5",
     "@tanstack/router-devtools": "^1.85.5",
     "better-auth": "^1.1.1",
+    "hono": "^4.6.14",
     "lint-staged": "^15.2.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -59,6 +59,7 @@
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-v8": "^2.1.8",
     "@vitest/ui": "^2.1.8",
+    "esbuild": "^0.24.2",
     "husky": "^9.1.7",
     "jsdom": "^25.0.1",
     "msw": "^2.6.6",
