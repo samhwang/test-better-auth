@@ -1,4 +1,9 @@
+#:schema node_modules/wrangler/config-schema.json
+
 name = "test-better-auth"
 pages_build_output_dir = "./dist"
 compatibility_date = "2024-12-21"
 compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
