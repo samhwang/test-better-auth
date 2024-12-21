@@ -32,3 +32,6 @@ public/mockServiceWorker.js
 
 # env
 .env
+
+# Wrangler
+.wrangler
