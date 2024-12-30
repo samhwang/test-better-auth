@@ -41,7 +41,7 @@
     "@trpc/client": "^10.45.2",
     "@trpc/react-query": "^10.45.2",
     "@trpc/server": "^10.45.2",
-    "better-auth": "^1.1.1",
+    "better-auth": "^1.1.6",
     "cloudflare-pages-plugin-trpc": "^0.3.2",
     "lint-staged": "^15.2.10",
     "react": "^18.3.1",
