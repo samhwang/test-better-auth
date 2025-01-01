@@ -2,29 +2,22 @@ import { useForm } from '@tanstack/react-form';
 import { z } from 'zod';
 import { authClient } from '../../../server/auth/client';
 
-const signupSchema = z
-  .object({
-    name: z.string(),
-    username: z.string().email(),
-    password: z.string(),
-    confirmPassword: z.string(),
-  })
-  .refine((value) => value.password === value.confirmPassword);
+const signinSchema = z.object({
+  username: z.string().email(),
+  password: z.string(),
+});
 
-function SignUp() {
+function Login() {
   const form = useForm({
     defaultValues: {
-      name: '',
       username: '',
       password: '',
-      confirmPassword: '',
     },
     validators: {
-      onSubmit: signupSchema,
+      onSubmit: signinSchema,
     },
     onSubmit: async ({ value }) => {
-      await authClient.signUp.email({
-        name: value.name,
+      await authClient.signIn.email({
         email: value.username,
         password: value.password,
       });
@@ -39,21 +32,6 @@ function SignUp() {
         form.handleSubmit();
       }}
     >
-      <form.Field name="name">
-        {(field) => (
-          <label htmlFor={field.name}>
-            {field.name}:
-            <input
-              name={field.name}
-              id={field.name}
-              type="text"
-              value={field.state.value}
-              onBlur={field.handleBlur}
-              onChange={(e) => field.handleChange(e.target.value)}
-            />
-          </label>
-        )}
-      </form.Field>
       <form.Field name="username">
         {(field) => (
           <label htmlFor={field.name}>
@@ -84,24 +62,9 @@ function SignUp() {
           </label>
         )}
       </form.Field>
-      <form.Field name="confirmPassword">
-        {(field) => (
-          <label htmlFor={field.name}>
-            {field.name}:
-            <input
-              name={field.name}
-              id={field.name}
-              type="password"
-              value={field.state.value}
-              onBlur={field.handleBlur}
-              onChange={(e) => field.handleChange(e.target.value)}
-            />
-          </label>
-        )}
-      </form.Field>
       <input type="submit" value="Submit" />
     </form>
   );
 }
 
-export default SignUp;
+export default Login;
