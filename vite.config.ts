@@ -8,7 +8,7 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), TanStackRouterVite(), viteWranglerSpa({ functionEntrypoint: 'functions/trpc/[[route]].ts' })],
+  plugins: [react(), TanStackRouterVite(), viteWranglerSpa()],
   test: {
     css: true,
     globals: true,
