@@ -16,12 +16,7 @@ app.use(
 );
 
 app.on(['POST', 'GET'], '/auth/**', (c) => {
-  const user = c.env.DB_USER;
-  const password = c.env.DB_PASSWORD;
-  const host = c.env.DB_HOST;
-  const port = c.env.DB_PORT;
-  const dbName = c.env.DB_NAME;
-  const connectionString = buildConnectionString(user, password, host, port, dbName);
+  const connectionString = buildConnectionString(c.env);
   const dbClient = getPrismaClient(connectionString);
   const auth = getAuth(dbClient);
   return auth.handler(c.req.raw);

@@ -2,6 +2,7 @@ import { Pool, neonConfig } from '@neondatabase/serverless';
 import { PrismaNeon } from '@prisma/adapter-neon';
 import { PrismaClient } from '@prisma/client';
 import ws from 'ws';
+import type { Env } from './context';
 
 neonConfig.webSocketConstructor = ws;
 
@@ -23,6 +24,6 @@ export function getPrismaClient(connectionString: string) {
   return prisma;
 }
 
-export function buildConnectionString(user: string, password: string, host: string, port: number, dbName: string): string {
+export function buildConnectionString({ DB_USER: user, DB_PASSWORD: password, DB_HOST: host, DB_PORT: port, DB_NAME: dbName }: Env): string {
   return `postgresql://${user}:${password}@${host}:${port}/${dbName}?sslmode=require`;
 }
