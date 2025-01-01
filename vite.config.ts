@@ -8,7 +8,13 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), TanStackRouterVite(), viteWranglerSpa()],
+  plugins: [
+    react(),
+    TanStackRouterVite(),
+    viteWranglerSpa({
+      external: ['@prisma/client'],
+    }),
+  ],
   test: {
     css: true,
     globals: true,
