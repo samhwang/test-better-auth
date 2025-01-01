@@ -11,9 +11,13 @@ export default defineConfig({
   plugins: [
     react(),
     TanStackRouterVite(),
-    viteWranglerSpa({
-      external: ['@prisma/client'],
-    }),
+    ...(process.env.VITEST
+      ? []
+      : [
+          viteWranglerSpa({
+            external: ['@prisma/client'],
+          }),
+        ]),
   ],
   test: {
     css: true,
