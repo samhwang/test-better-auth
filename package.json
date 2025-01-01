@@ -17,7 +17,7 @@
     "msw:init": "msw init public --save",
     "dev": "vite",
     "build:static": "vite build",
-    "build:function": "vite build --mode page-function",
+    "build:function": "pnpm run prisma:generate && vite build --mode page-function",
     "build": "pnpm run build:static && pnpm run build:function",
     "preview": "vite preview",
     "typecheck": "tsc",
