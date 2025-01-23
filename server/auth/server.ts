@@ -1,21 +1,13 @@
-import type { PrismaClient } from '@prisma/client';
 import { betterAuth } from 'better-auth';
-import { prismaAdapter } from 'better-auth/adapters/prisma';
+import { drizzleAdapter } from 'better-auth/adapters/drizzle';
+import { db } from '../db';
 
-let auth: ReturnType<typeof betterAuth> | undefined = undefined;
-
-export function getAuth(dbClient: PrismaClient) {
-  if (!auth) {
-    auth = betterAuth({
-      database: prismaAdapter(dbClient, {
-        provider: 'postgresql',
-      }),
-      emailAndPassword: {
-        enabled: true,
-      },
-      trustedOrigins: ['http://localhost:5173'],
-    });
-  }
-
-  return auth;
-}
+export const auth = betterAuth({
+  database: drizzleAdapter(db, {
+    provider: 'pg',
+  }),
+  emailAndPassword: {
+    enabled: true,
+  },
+  trustedOrigins: ['http://localhost:5173'],
+});

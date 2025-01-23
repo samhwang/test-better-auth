@@ -31,6 +31,9 @@
     "lint:fix:unsafe": "biome check --write --unsafe .",
     "format": "biome format --write .",
     "ci": "biome ci .",
+    "drizzle:generate": "npx drizzle-kit generate",
+    "drizzle:push": "npx drizzle-kit push",
+    "drizzle:migrate": "npx drizzle-kit migrate",
     "auth:generate": "npx @better-auth/cli generate"
   },
   "dependencies": {
