@@ -3,7 +3,7 @@ import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { createAuth } from './auth/server';
 import type { Env } from './context';
-import { getDbClient } from './db';
+import { buildConnectionString, getDbClient } from './db';
 import { appRouter } from './trpc/router';
 
 const app = new Hono<{ Bindings: Env }>().basePath('/api');
@@ -19,7 +19,8 @@ app.use(
 );
 
 app.on(['POST', 'GET'], '/auth/**', (c) => {
-  const db = getDbClient(c.env.DATABASE_URL);
+  const connectionString = buildConnectionString(c.env);
+  const db = getDbClient(connectionString);
   const auth = createAuth(db);
   return auth.handler(c.req.raw);
 });
