@@ -34,7 +34,7 @@
     "drizzle:generate": "npx drizzle-kit generate",
     "drizzle:push": "npx drizzle-kit push",
     "drizzle:migrate": "npx drizzle-kit migrate",
-    "auth:generate": "npx @better-auth/cli generate"
+    "auth:generate": "npx @better-auth/cli generate --config ./server/auth/auth.ts --output ./server/drizzle/schemas/auth-schema.ts"
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.32.0",
