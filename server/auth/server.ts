@@ -1,7 +1,6 @@
 import type { PrismaClient } from '@prisma/client';
 import { betterAuth } from 'better-auth';
 import { prismaAdapter } from 'better-auth/adapters/prisma';
-import { getPrismaClient } from '../prisma';
 
 let auth: ReturnType<typeof betterAuth> | undefined = undefined;
 
