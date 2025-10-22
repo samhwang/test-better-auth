@@ -18,7 +18,7 @@
     "githooks:init": "husky",
     "msw:init": "msw init public --save",
     "dev": "vite",
-    "build": "prisma generate && vite build",
+    "build": "pnpm run wrangler:generate && pnpm run prisma:generate && vite build",
     "preview": "vite preview",
     "typecheck": "tsc",
     "test": "vitest",
@@ -33,7 +33,8 @@
     "prisma:generate": "prisma generate",
     "prisma:push": "dotenvx run -- prisma push",
     "prisma:migrate": "dtoenvx run -- prisma migrate dev",
-    "auth:generate": "@better-auth/cli generate --config ./server/auth/auth.ts"
+    "auth:generate": "@better-auth/cli generate --config ./server/auth/auth.ts",
+    "wrangler:generate": "wrangler types server/generated/worker-configuration.d.ts --env-file .env.sample"
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.51.0",

@@ -41,3 +41,6 @@ public/mockServiceWorker.js
 
 # Prisma generated files
 server/generated/prisma
+
+# Wrangler generated files
+server/generated/worker-configuration.d.ts
