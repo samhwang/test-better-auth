@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Vite + React Starter Template",
   "msw": {
-    "workerDirectory": ["public"]
+    "workerDirectory": [
+      "public"
+    ]
   },
   "type": "module",
   "engines": {
@@ -45,10 +47,9 @@
     "@tanstack/react-query-devtools": "^5.90.2",
     "@tanstack/react-router": "^1.133.22",
     "@tanstack/router-devtools": "^1.133.22",
-    "@tanstack/zod-form-adapter": "^0.42.1",
-    "@trpc/client": "11.0.0-rc.682",
-    "@trpc/react-query": "11.0.0-rc.682",
-    "@trpc/server": "11.0.0-rc.682",
+    "@trpc/client": "^11.6.0",
+    "@trpc/react-query": "^11.6.0",
+    "@trpc/server": "^11.6.0",
     "better-auth": "^1.3.28",
     "drizzle-orm": "^0.44.6",
     "hono": "^4.10.2",
