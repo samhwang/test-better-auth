@@ -18,7 +18,7 @@
     "githooks:init": "husky",
     "msw:init": "msw init public --save",
     "dev": "vite",
-    "build": "rm -rf public/mockServiceWorker.js && vite build",
+    "build": "rm -rf public/mockServiceWorker.js && npx prisma generate && vite build",
     "preview": "vite preview",
     "typecheck": "tsc",
     "test": "vitest",
