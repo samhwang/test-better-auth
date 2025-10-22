@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
-import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
+import { tanstackRouter } from '@tanstack/router-vite-plugin';
 import { viteWranglerSpa } from '@torchauth/vite-plugin-wrangler-spa';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
@@ -10,7 +10,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [
     react(),
-    TanStackRouterVite(),
+    tanstackRouter(),
     ...(process.env.VITEST
       ? []
       : [
