@@ -1,8 +1,7 @@
-import dotenv from '@dotenvx/dotenvx';
 import { getDbClient } from '../db';
+import { loadEnv } from '../env';
 import { createAuth } from './server';
 
-dotenv.config({ path: '../../.env' });
-
-const db = getDbClient(process.env.DATABASE_URL || '');
+const env = loadEnv();
+const db = getDbClient(env.DATABASE_URL);
 export const auth = createAuth(db);

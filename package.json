@@ -18,7 +18,7 @@
     "githooks:init": "husky",
     "msw:init": "msw init public --save",
     "dev": "vite",
-    "build": "npx prisma generate && vite build",
+    "build": "prisma generate && vite build",
     "preview": "vite preview",
     "typecheck": "tsc",
     "test": "vitest",
@@ -30,10 +30,10 @@
     "lint:fix": "biome check --write .",
     "lint:fix:unsafe": "biome check --write --unsafe .",
     "ci": "biome ci .",
-    "prisma:generate": "npx prisma generate",
-    "prisma:push": "npx prisma push",
-    "prisma:migrate": "npx prisma migrate dev",
-    "auth:generate": "npx @better-auth/cli generate --config ./server/auth/auth.ts"
+    "prisma:generate": "prisma generate",
+    "prisma:push": "dotenvx run -- prisma push",
+    "prisma:migrate": "dtoenvx run -- prisma migrate dev",
+    "auth:generate": "@better-auth/cli generate --config ./server/auth/auth.ts"
   },
   "dependencies": {
     "@dotenvx/dotenvx": "^1.51.0",
