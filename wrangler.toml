@@ -1,6 +1,6 @@
 #:schema node_modules/wrangler/config-schema.json
 
-name = "test-better-auth"
+name = "test-better-auth-worker"
 compatibility_date = "2025-09-15"
 compatibility_flags = ["nodejs_compat"]
 main = "./functions/index.ts"
