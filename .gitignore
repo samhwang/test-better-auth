@@ -35,3 +35,6 @@ public/mockServiceWorker.js
 
 # Wrangler
 .wrangler
+
+# Docker
+.docker
