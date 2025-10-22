@@ -5,7 +5,7 @@ import { authClient } from '../../../server/auth/client';
 const signupSchema = z
   .object({
     name: z.string(),
-    username: z.string().email(),
+    username: z.email(),
     password: z.string(),
     confirmPassword: z.string(),
   })
