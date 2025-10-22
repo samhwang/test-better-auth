@@ -16,7 +16,8 @@
       "!**/node_modules",
       "!**/dist",
       "!**/coverage",
-      "!**/generated"
+      "!**/generated",
+      "!**/.wrangler"
     ]
   },
   "linter": {
