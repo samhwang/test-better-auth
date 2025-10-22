@@ -6,7 +6,7 @@
       "**/*.setup.*",
       "**/*.config.*",
       "**/src/**",
-      "**/server/**",
+      "**/worker/**",
       "**/functions/**",
       "**/*.json",
       "**/*.md",
