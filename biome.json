@@ -1,15 +1,26 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "files": {
-    "include": ["*.setup.*", "*.config.*", "src/**", "server/**", "functions/**", "**/*.json", "**/*.md", "**/*.yaml", "**/*.yml"],
-    "ignore": ["src/routeTree.gen.ts", "node_modules", "dist", "coverage"]
+    "includes": [
+      "**/*.setup.*",
+      "**/*.config.*",
+      "**/src/**",
+      "**/server/**",
+      "**/functions/**",
+      "**/*.json",
+      "**/*.md",
+      "**/*.yaml",
+      "**/*.yml",
+      "!**/src/routeTree.gen.ts",
+      "!**/node_modules",
+      "!**/dist",
+      "!**/coverage"
+    ]
   },
   "linter": {
     "enabled": true,
-    "ignore": ["node_modules", "src/**/__snapshots__"],
+    "includes": ["**", "!**/node_modules", "!**/src/**/__snapshots__"],
     "rules": {
       "recommended": true
     }
@@ -20,7 +31,7 @@
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 160,
-    "ignore": ["node_modules", "src/**/__snapshots__"]
+    "includes": ["**", "!**/node_modules", "!**/src/**/__snapshots__"]
   },
   "javascript": {
     "formatter": {
