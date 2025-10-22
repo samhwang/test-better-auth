@@ -13,6 +13,12 @@ export function getDbClient(connectionString: string): PrismaClient {
   return db;
 }
 
-export function buildConnectionString({ DB_USER: user, DB_PASSWORD: password, DB_HOST: host, DB_PORT: port, DB_NAME: dbName }: Env): string {
+export function buildConnectionString({
+  POSTGRES_USER: user,
+  POSTGRES_PASSWORD: password,
+  POSTGRES_HOST: host,
+  POSTGRES_PORT: port,
+  POSTGRES_NAME: dbName,
+}: Env): string {
   return `postgresql://${user}:${password}@${host}:${port}/${dbName}?sslmode=require`;
 }

@@ -1,10 +1,10 @@
 export interface Env {
   // DB
-  DB_HOST: string;
-  DB_USER: string;
-  DB_PASSWORD: string;
-  DB_NAME: string;
-  DB_PORT: string;
+  POSTGRES_HOST: string;
+  POSTGRES_USER: string;
+  POSTGRES_PASSWORD: string;
+  POSTGRES_NAME: string;
+  POSTGRES_PORT: string;
   DATABASE_URL: string;
 }
 
