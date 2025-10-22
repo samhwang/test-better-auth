@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { authClient } from '../../../server/auth/client';
 
 const signinSchema = z.object({
-  username: z.string().email(),
+  username: z.email(),
   password: z.string(),
 });
 
