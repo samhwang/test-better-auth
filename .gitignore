@@ -38,3 +38,6 @@ public/mockServiceWorker.js
 
 # Docker
 .docker
+
+# Prisma generated files
+server/generated/prisma

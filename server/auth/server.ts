@@ -1,18 +1,11 @@
 import { betterAuth } from 'better-auth';
-import { drizzleAdapter } from 'better-auth/adapters/drizzle';
-import type { drizzle } from 'drizzle-orm/neon-http';
-import { account, session, user, verification } from '../drizzle/schemas/auth-schema';
+import { prismaAdapter } from 'better-auth/adapters/prisma';
+import type { getDbClient } from '../db';
 
-export function createAuth(db: ReturnType<typeof drizzle>) {
+export function createAuth(db: ReturnType<typeof getDbClient>) {
   return betterAuth({
-    database: drizzleAdapter(db, {
-      provider: 'pg',
-      schema: {
-        user,
-        session,
-        account,
-        verification,
-      },
+    database: prismaAdapter(db, {
+      provider: 'postgresql',
     }),
     emailAndPassword: {
       enabled: true,
