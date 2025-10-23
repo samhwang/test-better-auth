@@ -7,11 +7,8 @@ import { logger } from 'hono/logger';
 import { requestId } from 'hono/request-id';
 import { createAuth } from './auth/server';
 import { buildConnectionString, getDbClient } from './db';
-import { loadEnv } from './env';
 import { appRouter } from './orpc/router';
 import { config } from './otel';
-
-const env = loadEnv();
 
 const app = new Hono<{ Bindings: Cloudflare.Env }>().basePath('/api');
 
@@ -43,6 +40,4 @@ app.on(['POST', 'GET'], '/auth/**', (c) => {
   return auth.handler(c.req.raw);
 });
 
-const exportedApp = env.ENV === 'development' ? instrument(app, config) : app;
-
-export default exportedApp;
+export default instrument(app, config);
