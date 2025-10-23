@@ -18,7 +18,7 @@
     "githooks:init": "husky",
     "msw:init": "msw init public --save",
     "dev": "vite",
-    "build": "pnpm run wrangler:generate && pnpm run prisma:generate && vite build",
+    "build": "pnpm run prisma:generate && pnpm run wrangler:generate && vite build",
     "preview": "vite preview",
     "typecheck": "tsc",
     "test": "vitest",
