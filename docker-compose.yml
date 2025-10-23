@@ -6,3 +6,12 @@ services:
       - ./.docker/db:/var/lib/postgresql
     ports:
       - 5432:5432
+
+  tracing:
+    image: cr.jaegertracing.io/jaegertracing/jaeger:2.11.0
+    ports:
+      - 16686:16686
+      - 4317:4317
+      - 4318:4318
+      - 5778:5778
+      - 9411:9411

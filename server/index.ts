@@ -1,3 +1,5 @@
+import { httpInstrumentationMiddleware } from '@hono/otel';
+import { instrument } from '@microlabs/otel-cf-workers';
 import { RPCHandler } from '@orpc/server/fetch';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
@@ -5,13 +7,18 @@ import { logger } from 'hono/logger';
 import { requestId } from 'hono/request-id';
 import { createAuth } from './auth/server';
 import { buildConnectionString, getDbClient } from './db';
+import { loadEnv } from './env';
 import { appRouter } from './orpc/router';
+import { config } from './otel';
+
+const env = loadEnv();
 
 const app = new Hono<{ Bindings: Cloudflare.Env }>().basePath('/api');
 
 app.use(logger());
 app.use('*', cors());
 app.use('*', requestId());
+app.use('*', httpInstrumentationMiddleware());
 
 const rpcHandler = new RPCHandler(appRouter);
 app.use('/rpc/**', async (c, next) => {
@@ -36,4 +43,6 @@ app.on(['POST', 'GET'], '/auth/**', (c) => {
   return auth.handler(c.req.raw);
 });
 
-export default app;
+const exportedApp = env.ENV === 'development' ? instrument(app, config) : app;
+
+export default exportedApp;
