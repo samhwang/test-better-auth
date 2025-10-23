@@ -2,11 +2,10 @@ import { trpcServer } from '@hono/trpc-server';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { createAuth } from './auth/server';
-import type { Env } from './context';
 import { buildConnectionString, getDbClient } from './db';
 import { appRouter } from './trpc/router';
 
-const app = new Hono<{ Bindings: Env }>().basePath('/api');
+const app = new Hono<{ Bindings: Cloudflare.Env }>().basePath('/api');
 
 app.use('/', cors());
 
