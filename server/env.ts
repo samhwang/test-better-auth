@@ -14,7 +14,6 @@ const Env = z
     POSTGRES_USER: z.string(),
     POSTGRES_PASSWORD: z.string(),
     POSTGRES_NAME: z.string(),
-    DATABASE_URL: z.string(),
 
     // Auth
     BETTER_AUTH_SECRET: z.string().min(1, {
