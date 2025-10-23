@@ -10,9 +10,9 @@ const app = new Hono<{ Bindings: Cloudflare.Env }>().basePath('/api');
 app.use('/', cors());
 
 const rpcHandler = new RPCHandler(appRouter);
-app.use('/rpc/*', async (c, next) => {
+app.use('/rpc/**', async (c, next) => {
   const { matched, response } = await rpcHandler.handle(c.req.raw, {
-    prefix: '/rpc',
+    prefix: '/api/rpc',
     context: {
       env: c.env,
     },
