@@ -10,6 +10,6 @@ export function createAuth(db: ReturnType<typeof getDbClient>): ReturnType<typeo
     emailAndPassword: {
       enabled: true,
     },
-    trustedOrigins: ['http://localhost:5173'],
+    trustedOrigins: [],
   });
 }

@@ -4,7 +4,7 @@ import type { RouterClient } from '@orpc/server';
 import type { appRouter } from './router';
 
 const link = new RPCLink({
-  url: 'http://localhost:3000/api/rpc',
+  url: '/api/rpc',
   interceptors: [
     onError((error) => {
       console.error('RPC error:', error);
