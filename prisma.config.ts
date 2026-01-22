@@ -7,6 +7,9 @@ export default defineConfig({
     adapter: true,
     studio: true,
   },
+  datasource: {
+    url: process.env.DATABASE_URL,
+  },
   schema: path.join('prisma', 'schema.prisma'),
   migrations: {
     path: path.join('prisma', 'migrations'),
